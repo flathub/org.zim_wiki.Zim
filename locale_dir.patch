@@ -1,0 +1,20 @@
+diff --git a/zim/__init__.py b/zim/__init__.py
+index c243186a..58f2792c 100644
+--- a/zim/__init__.py
++++ b/zim/__init__.py
+@@ -167,8 +167,13 @@ try:
+ 		# We are running from a source dir - use the locale data included there
+ 		gettext.install('zim', _localedir, unicode=True, names=('_', 'gettext', 'ngettext'))
+ 	else:
+-		# Hope the system knows where to find the data
+-		gettext.install('zim', None, unicode=True, names=('_', 'gettext', 'ngettext'))
++		_localedir = os.path.join(os.path.dirname(ZIM_EXECUTABLE), '..', 'share', 'locale')
++		if os.path.isdir(_localedir):
++			# Try to use locale data from a relative path, for zim installed with a custom prefix
++			gettext.install('zim', _localedir, unicode=True, names=('_', 'gettext', 'ngettext'))
++		else:
++			# Hope the system knows where to find the data
++			gettext.install('zim', None, unicode=True, names=('_', 'gettext', 'ngettext'))
+ except:
+ 	logger.exception('Error loading translation')
+ 	trans = gettext.NullTranslations()

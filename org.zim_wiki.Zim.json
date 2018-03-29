@@ -17,7 +17,7 @@
         "--talk-name=com.canonical.indicator.application",
         "--filesystem=home"
     ],
-    "cleanup": ["/share/gtk-doc"],
+    "cleanup": ["/share/gtk-doc", "/share/gnome/help"],
     "modules": [
         {
             "name": "py2cairo",
@@ -216,6 +216,10 @@
                 {
                     "type": "patch",
                     "path": "mimetype-icon.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "locale_dir.patch"
                 }
             ]
         }
