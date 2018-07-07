@@ -220,6 +220,10 @@
                 {
                     "type": "patch",
                     "path": "locale_dir.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "0001-Add-launchable-entry.patch"
                 }
             ]
         }
