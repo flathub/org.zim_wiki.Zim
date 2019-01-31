@@ -2,7 +2,7 @@
     "app-id": "org.zim_wiki.Zim",
     "branch": "next",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.26",
+    "runtime-version": "3.28",
     "sdk": "org.gnome.Sdk",
     "command": "zim",
     "rename-desktop-file": "zim.desktop",
@@ -53,19 +53,15 @@
             "buildsystem": "simple",
             "build-commands": [
                 "python3 setup.py build",
-                "python3 setup.py install --prefix=/app --skip-xdg-cmd --skip-build",
+                "python3 setup.py install --prefix=/app --skip-build",
                 "mv /app/share/mime/packages/zim.xml /app/share/mime/packages/org.zim_wiki.Zim.xml",
                 "find /app/share/icons/ -name 'application-x-zim-notebook.*' -exec rename application org.zim_wiki.Zim-application '{}' \\;"
             ],
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/jaap-karssenberg/zim-desktop-wiki.git",
-                    "branch": "next"
-                },
-                {
-                    "type": "patch",
-                    "path": "0001-Add-oars-rating-to-metainfo.patch"
+                    "url": "https://github.com/zim-desktop-wiki/zim-desktop-wiki.git",
+                    "branch": "master"
                 },
                 {
                     "type": "patch",
