@@ -221,8 +221,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://zim-wiki.org/downloads/zim-0.69.tar.gz",
-                    "sha256": "41990870893976a6e20271e1f59a0b896000f367218f26c13a88471252a004c8"
+                    "url": "http://zim-wiki.org/downloads/zim-0.69.1.tar.gz",
+                    "sha256": "98ab623d63be4cdfefd4cdb253d9aa1f59bc2b69ab1fcea0fe265d594947ebfb"
                 },
                 {
                     "type": "patch",
