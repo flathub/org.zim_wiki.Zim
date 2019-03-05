@@ -1,0 +1,25 @@
+From eaad7242a8761bfabc12e85292971fb0b80afe75 Mon Sep 17 00:00:00 2001
+From: Robin Lee <cheeselee@fedoraproject.org>
+Date: Tue, 5 Mar 2019 16:56:32 +0800
+Subject: [PATCH] Trayicon use Flatpak exported file name
+
+---
+ zim/plugins/trayicon.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/zim/plugins/trayicon.py b/zim/plugins/trayicon.py
+index 3ade8e3b..fb7cbf29 100644
+--- a/zim/plugins/trayicon.py
++++ b/zim/plugins/trayicon.py
+@@ -315,7 +315,7 @@ class AppIndicatorTrayIcon(TrayIconBase, SignalEmitter):
+ 
+ 		if not _GLOBAL_INDICATOR:
+ 			_GLOBAL_INDICATOR = appindicator.Indicator(
+-				'zim-desktop-wiki', 'zim',
++				'zim-desktop-wiki', 'org.zim_wiki.Zim',
+ 				appindicator.CATEGORY_APPLICATION_STATUS
+ 			)
+ 
+-- 
+2.17.2
+
