@@ -24,6 +24,8 @@
         "--talk-name=org.kde.StatusNotifierWatcher",
         "--talk-name=com.canonical.indicator.application",
         "--filesystem=home",
+        "--filesystem=/run/media",
+        "--filesystem=/media",
         "--env=PATH=/app/bin:/usr/bin:/app/texlive-bin:/app/texlive/bin"
     ],
     "cleanup": ["/share/gtk-doc", "/share/gnome/help"],
