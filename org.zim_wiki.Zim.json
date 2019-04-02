@@ -23,6 +23,7 @@
         /* libappindicator access */
         "--talk-name=org.kde.StatusNotifierWatcher",
         "--talk-name=com.canonical.indicator.application",
+        "--talk-name=org.freedesktop.Flatpak",
         "--filesystem=home",
         "--filesystem=/run/media",
         "--filesystem=/media",
