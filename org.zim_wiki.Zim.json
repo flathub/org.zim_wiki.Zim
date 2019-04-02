@@ -85,9 +85,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/zim-desktop-wiki/zim-desktop-wiki.git",
-                    "branch": "master"
+                    "type": "archive",
+                    "url": "http://www.zim-wiki.org/downloads/zim-0.70.tar.gz",
+                    "sha256": "adc9a6dea3058a4df6c5096a775a93a5ad1b1fc0d3fb64c9142ac01b0d923dbc"
                 },
                 {
                     "type": "patch",
