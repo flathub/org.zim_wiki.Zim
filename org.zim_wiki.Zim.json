@@ -71,6 +71,7 @@
                 }
             ]
         },
+        "shared-modules/libappindicator/libappindicator-gtk3-introspection-12.10.json",
         {
             "name": "zim",
             "buildsystem": "simple",
