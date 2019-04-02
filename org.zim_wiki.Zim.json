@@ -96,6 +96,10 @@
                 {
                     "type": "patch",
                     "path": "0001-Add-launchable-entry.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "0001-Trayicon-use-Flatpak-exported-file-name.patch"
                 }
             ]
         }
