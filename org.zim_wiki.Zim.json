@@ -1,6 +1,6 @@
 {
     "app-id": "org.zim_wiki.Zim",
-    "branch": "next",
+    "branch": "stable",
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.30",
     "sdk": "org.gnome.Sdk",
