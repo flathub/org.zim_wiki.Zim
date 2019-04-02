@@ -1,17 +1,17 @@
-From 64492e4df258b1972c16a03683509e69efd8181f Mon Sep 17 00:00:00 2001
+From cbe43cc4798b3bf55094615cdd6b9dd765ca1d14 Mon Sep 17 00:00:00 2001
 From: Robin Lee <cheeselee@fedoraproject.org>
-Date: Sat, 7 Jul 2018 12:27:04 +0800
+Date: Thu, 31 Jan 2019 11:42:13 +0800
 Subject: [PATCH] Add launchable entry
 
 ---
- xdg/org.zim_wiki.Zim.metainfo.xml | 1 +
+ xdg/org.zim_wiki.Zim.appdata.xml | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/xdg/org.zim_wiki.Zim.metainfo.xml b/xdg/org.zim_wiki.Zim.metainfo.xml
-index 7998dda5..ac2ac3e3 100644
---- a/xdg/org.zim_wiki.Zim.metainfo.xml
-+++ b/xdg/org.zim_wiki.Zim.metainfo.xml
-@@ -28,6 +28,7 @@
+diff --git a/xdg/org.zim_wiki.Zim.appdata.xml b/xdg/org.zim_wiki.Zim.appdata.xml
+index 2fe6c87e..95f8b978 100644
+--- a/xdg/org.zim_wiki.Zim.appdata.xml
++++ b/xdg/org.zim_wiki.Zim.appdata.xml
+@@ -29,6 +29,7 @@
  		<li>Do brainstorming</li>
  	</ul>
    </description>
@@ -20,5 +20,5 @@ index 7998dda5..ac2ac3e3 100644
    <screenshots>
      <screenshot type="default">http://zim-wiki.org/screenshots/zim-normal.png</screenshot>
 -- 
-2.17.1
+2.17.2
 
