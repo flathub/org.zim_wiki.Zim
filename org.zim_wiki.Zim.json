@@ -58,13 +58,48 @@
             ]
         },
         {
-            "name": "gtkspell",
-            "config-opts": ["--enable-introspection=yes"],
+            "name": "pygtkspellcheck",
+            "buildsystem": "simple",
+            "build-commands": [
+                "echo ./pyenchant-2.0.0-py3.7.egg > /app/lib/python3.7/site-packages/easy-install.pth",
+                "python3 setup.py install --prefix=/app"
+            ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://sourceforge.net/projects/gtkspell/files/3.0.10/gtkspell3-3.0.10.tar.xz",
-                    "sha256": "b040f63836b347eb344f5542443dc254621805072f7141d49c067ecb5a375732"
+                    "url": "https://files.pythonhosted.org/packages/3b/32/22383ba519e9073dd6090e5c790a73619a3f8e68c9233badffdbf63a8143/pygtkspellcheck-4.0.5.tar.gz",
+                    "sha256": "af90465c11cd0362a802d19d60166d5e22ab58c0e610e731d29f6ffcf97c372b"
+                }
+            ],
+            "modules": [
+                {
+                    "name": "enchant",
+                    "config-opts": ["--disable-static", "--with-myspell-dir=/usr/share/hunspell"],
+                    "cleanup": [
+                        "/bin"
+                    ],
+                    "sources": [
+                        {
+                            "type" : "archive",
+                            "url" : "https://github.com/AbiWord/enchant/releases/download/enchant-1-6-1/enchant-1.6.1.tar.gz",
+                            "sha256" : "bef0d9c0fef2e4e8746956b68e4d6c6641f6b85bd2908d91731efb68eba9e3f5"
+                        }
+                    ]
+                },
+                {
+                    "name": "pyenchant",
+                    "buildsystem": "simple",
+                    "build-commands": [
+                        "python3 setup.py install --prefix=/app",
+                        "rm /app/lib/python3.7/site-packages/easy-install.pth"
+                    ],
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://files.pythonhosted.org/packages/9e/54/04d88a59efa33fefb88133ceb638cdf754319030c28aadc5a379d82140ed/pyenchant-2.0.0.tar.gz",
+                            "sha256": "fc31cda72ace001da8fe5d42f11c26e514a91fa8c70468739216ddd8de64e2a0"
+                        }
+                    ]
                 }
             ]
         },
