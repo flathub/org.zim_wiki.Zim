@@ -66,8 +66,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://pypi.python.org/packages/26/28/ee953bd2c030ae5a9e9a0ff68e5912bd90ee50ae766871151cd2572ca570/pyxdg-0.25.tar.gz",
-                    "sha256": "81e883e0b9517d624e8b0499eb267b82a815c0b7146d5269f364988ae031279d"
+                    "url": "https://files.pythonhosted.org/packages/47/6e/311d5f22e2b76381719b5d0c6e9dc39cd33999adae67db71d7279a6d70f4/pyxdg-0.26.tar.gz",
+                    "sha256": "fe2928d3f532ed32b39c32a482b54136fe766d19936afc96c8f00645f9da1a06"
                 }
             ]
         },
