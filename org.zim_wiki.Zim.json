@@ -61,8 +61,11 @@
             "name": "pygtkspellcheck",
             "buildsystem": "simple",
             "build-commands": [
-                "echo ./pyenchant-2.0.0-py3.7.egg > /app/lib/python3.7/site-packages/easy-install.pth",
                 "python3 setup.py install --prefix=/app"
+            ],
+            "ensure-writable": [
+                "/app/lib/python*/site-packages/easy-install.pth",
+                "/lib/python*/site-packages/easy-install.pth"
             ],
             "sources": [
                 {
@@ -90,8 +93,11 @@
                     "name": "pyenchant",
                     "buildsystem": "simple",
                     "build-commands": [
-                        "python3 setup.py install --prefix=/app",
-                        "rm /app/lib/python3.7/site-packages/easy-install.pth"
+                        "python3 setup.py install --prefix=/app"
+                    ],
+                    "ensure-writable": [
+                        "/app/lib/python*/site-packages/easy-install.pth",
+                        "/lib/python*/site-packages/easy-install.pth"
                     ],
                     "sources": [
                         {
@@ -118,6 +124,24 @@
             ]
         },
         "shared-modules/libappindicator/libappindicator-gtk3-introspection-12.10.json",
+        {
+            "name": "xdot",
+            "buildsystem": "simple",
+            "build-commands": [
+                "python3 setup.py install --prefix=/app"
+            ],
+            "ensure-writable": [
+                "/app/lib/python*/site-packages/easy-install.pth",
+                "/lib/python*/site-packages/easy-install.pth"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://files.pythonhosted.org/packages/0f/1b/7ae17e0931ff011bba1c86000674666176021756d07ed29ce0b263b3fddf/xdot-1.1.tar.gz",
+                    "sha256": "e15c53d80dc8777402a7258eebe6cbf395d04085ff9699bbffae91df0ecc2433"
+                }
+            ]
+        },
         {
             "name": "zim",
             "buildsystem": "simple",
