@@ -156,8 +156,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://www.zim-wiki.org/downloads/zim-0.71.0.tar.gz",
-                    "sha256": "60f0ea39a2abb1e6751de2c69193783fa1a7476d597b73ce1ff7174d43482357"
+                    "url": "http://www.zim-wiki.org/downloads/zim-0.71.1.tar.gz",
+                    "sha256": "acaf8f2b7a2bae1eee1bae46ebdb9d90c1d0a3f74069bf695570d2b92e87fc34"
                 },
                 {
                     "type": "patch",
