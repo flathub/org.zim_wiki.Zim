@@ -170,6 +170,10 @@
                 {
                     "type": "patch",
                     "path": "0001-Trayicon-use-Flatpak-exported-file-name.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "0001-Add-releases-to-appdata.patch"
                 }
             ]
         }
