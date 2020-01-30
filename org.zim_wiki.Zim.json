@@ -2,12 +2,12 @@
     "app-id": "org.zim_wiki.Zim",
     "branch": "stable",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.30",
+    "runtime-version": "3.34",
     "sdk": "org.gnome.Sdk",
     "add-extensions": {
         "org.freedesktop.Sdk.Extension.texlive": {
             "directory": "texlive",
-            "version": "18.08",
+            "version": "19.08",
             "no-autodownload": true,
             "autodelete": false
         }
