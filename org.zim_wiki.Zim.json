@@ -2,7 +2,7 @@
     "app-id": "org.zim_wiki.Zim",
     "branch": "stable",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.34",
+    "runtime-version": "3.36",
     "sdk": "org.gnome.Sdk",
     "add-extensions": {
         "org.freedesktop.Sdk.Extension.texlive": {
@@ -52,8 +52,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.9.tar.xz",
-                    "sha256": "699d76a453e6a3d3331906346e3dbfa25f2cbc9ec090e46635e9c6bb595e07c2"
+                    "url": "https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.11.tar.xz",
+                    "sha256": "691b074a37b2a307f7f48edc5b8c7afa7301709be56378ccf9cc9735909077fd"
                 }
             ]
         },
@@ -156,8 +156,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://www.zim-wiki.org/downloads/zim-0.72.0.tar.gz",
-                    "sha256": "a1a93e17e19365d1e4c729739558fd2e68d7dcdef944d0198f481bf4ceab6fd8"
+                    "url": "https://zim-wiki.org/downloads/zim-0.72.1.tar.gz",
+                    "sha256": "34e4368a502f0190ea661c2f7d9121e926f729654880382e392e9e5bf3493029"
                 },
                 {
                     "type": "patch",
@@ -170,14 +170,6 @@
                 {
                     "type": "patch",
                     "path": "0001-Trayicon-use-Flatpak-exported-file-name.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "0001-Add-releases-to-appdata.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "0001-Minor-appdata-fixes.patch"
                 }
             ]
         }
