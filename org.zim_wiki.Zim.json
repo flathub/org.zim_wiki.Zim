@@ -27,7 +27,8 @@
         "--filesystem=home",
         "--filesystem=/run/media",
         "--filesystem=/media",
-        "--env=PATH=/app/bin:/usr/bin:/app/texlive-bin:/app/texlive/bin"
+        "--env=PATH=/app/bin:/usr/bin:/app/texlive-bin:/app/texlive/bin",
+        "--env=TMPDIR=/var/tmp"
     ],
     "cleanup": ["/share/gtk-doc", "/share/gnome/help"],
     "modules": [
