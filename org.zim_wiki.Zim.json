@@ -2,7 +2,7 @@
     "app-id": "org.zim_wiki.Zim",
     "branch": "stable",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.38",
+    "runtime-version": "41",
     "sdk": "org.gnome.Sdk",
     "add-extensions": {
         "org.freedesktop.Sdk.Extension.texlive": {
@@ -157,8 +157,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://zim-wiki.org/downloads/zim-0.74.2.tar.gz",
-                    "sha256": "b59c41969a6cda72d38523aadd6278da2510e0d1b52dbe3addbbc343e7636490"
+                    "url": "https://zim-wiki.org/downloads/zim-0.74.3.tar.gz",
+                    "sha256": "dde84f22486c7f52670bd431de443a8a5bd168107b6ae066d82d473ae346cd15"
                 },
                 {
                     "type": "patch",
