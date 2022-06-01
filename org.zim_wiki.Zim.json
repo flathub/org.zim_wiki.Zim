@@ -7,7 +7,7 @@
     "add-extensions": {
         "org.freedesktop.Sdk.Extension.texlive": {
             "directory": "texlive",
-            "version": "20.08",
+            "version": "21.08",
             "no-autodownload": true,
             "autodelete": false
         }
