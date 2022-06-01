@@ -2,7 +2,7 @@
     "app-id": "org.zim_wiki.Zim",
     "branch": "stable",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "41",
+    "runtime-version": "42",
     "sdk": "org.gnome.Sdk",
     "add-extensions": {
         "org.freedesktop.Sdk.Extension.texlive": {
