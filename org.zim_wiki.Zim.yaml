@@ -1,0 +1,133 @@
+app-id: org.zim_wiki.Zim
+branch: stable
+runtime: org.gnome.Platform
+runtime-version: '43'
+sdk: org.gnome.Sdk
+add-extensions:
+  org.freedesktop.Sdk.Extension.texlive:
+    directory: texlive
+    version: '22.08'
+    no-autodownload: true
+    autodelete: false
+command: zim
+rename-desktop-file: zim.desktop
+rename-icon: zim
+finish-args:
+  - '--share=ipc'
+  - '--share=network'
+  - '--socket=x11'
+  - '--socket=wayland'
+  # libappindicator access
+  - '--talk-name=org.kde.StatusNotifierWatcher'
+  - '--talk-name=com.canonical.indicator.application'
+  - '--talk-name=org.freedesktop.Flatpak'
+  - '--filesystem=home'
+  - '--filesystem=/run/media'
+  - '--filesystem=/media'
+  - '--env=PATH=/app/bin:/usr/bin:/app/texlive-bin:/app/texlive/bin'
+  - '--env=TMPDIR=/var/tmp'
+cleanup:
+  - /share/gtk-doc
+  - /share/gnome/help
+modules:
+  - name: graphviz
+    buildsystem: autotools
+    config-opts:
+      - '--disable-tcl'
+    cleanup:
+      - /share/graphviz/doc
+    sources:
+      - type: archive
+        url: >-
+          https://gitlab.com/graphviz/graphviz/-/archive/6.0.1/graphviz-6.0.1.tar.bz2
+        sha256: 27ce9b0b4b618dcc1b57429aeb6d664f913d14b830130ba48a979b91ad05ec62
+        x-checker-data:
+          type: anitya
+          project-id: 1249
+          stable-only: true
+          url-template: >-
+            https://gitlab.com/graphviz/graphviz/-/archive/$version/graphviz-$version.tar.bz2
+  - name: pygtkspellcheck
+    buildsystem: simple
+    build-commands:
+      - python3 setup.py install --prefix=/app --root=/
+    sources:
+      - type: archive
+        url: https://files.pythonhosted.org/packages/35/ff/a8ae7652ce2b6e86159441068792afeb133cf89b884d5eccaa1c962c49fe/pygtkspellcheck-5.0.1.tar.gz
+        sha256: 8481dfd4b0661613d6375dfc8da0003a99b1f9fadb7ba5ccdb6fa31be39672fc
+    modules:
+      - name: pyenchant
+        buildsystem: simple
+        build-commands:
+          - python3 setup.py install --prefix=/app --root=/
+        sources:
+          - type: archive
+            url: https://files.pythonhosted.org/packages/b1/a3/86763b6350727ca81c8fcc5bb5bccee416e902e0085dc7a902c81233717e/pyenchant-3.2.2.tar.gz
+            sha256: 1cf830c6614362a78aab78d50eaf7c6c93831369c52e1bb64ffae1df0341e637
+  - name: python-pyxdg
+    buildsystem: simple
+    build-commands:
+      - python3 setup.py install --prefix=/app
+    sources:
+      - type: archive
+        url: >-
+          https://files.pythonhosted.org/packages/b0/25/7998cd2dec731acbd438fbf91bc619603fc5188de0a9a17699a781840452/pyxdg-0.28.tar.gz
+        sha256: 3267bb3074e934df202af2ee0868575484108581e6f3cb006af1da35395e88b4
+  - shared-modules/libappindicator/libappindicator-gtk3-introspection-12.10.json
+  - name: xdot
+    buildsystem: simple
+    build-commands:
+      - python3 setup.py install --prefix=/app --root=/
+    sources:
+      - type: archive
+        url: >-
+          https://files.pythonhosted.org/packages/8b/f5/f5282a470a1c0f16b6600edae18ffdc3715cdd6ac8753205df034650cebe/xdot-1.2.tar.gz
+        sha256: 3df91e6c671869bd2a6b2a8883fa3476dbe2ba763bd2a7646cf848a9eba71b70
+    modules:
+      # derived from https://github.com/flathub/se.sjoerd.GIScan/blob/065f91ce93a91ede84ff36bb88a607efeae9139d/python3-requirements.json
+      - name: numpy
+        buildsystem: simple
+        build-commands:
+          - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} numpy --no-build-isolation
+        sources:
+          - type: file
+            url: https://files.pythonhosted.org/packages/0a/88/f4f0c7a982efdf7bf22f283acf6009b29a9cc5835b684a49f8d3a4adb22f/numpy-1.23.3.tar.gz
+            sha256: 51bf49c0cd1d52be0a240aa66f3458afc4b95d8993d2d04f0d91fa60c10af6cd
+        cleanup:
+          - /bin
+          - /lib/python3.*/site-packages/numpy/core/include
+          - /lib/python3.*/site-packages/numpy/core/lib/libnpymath.a
+          - /lib/python3.*/site-packages/numpy/tests
+          - /lib/python3.*/site-packages/numpy/*/tests
+        modules:
+          # numpy recommends setuptools < 60.0
+          # see: https://numpy.org/devdocs/reference/distutils_status_migration.html#numpy-setuptools-interaction
+          - name: setuptools
+            buildsystem: simple
+            build-commands:
+              - python3 setup.py install --prefix=/app --root=/
+            sources:
+              - type: archive
+                url: https://files.pythonhosted.org/packages/ef/75/2bc7bef4d668f9caa9c6ed3f3187989922765403198243040d08d2a52725/setuptools-59.8.0.tar.gz
+                sha256: 09980778aa734c3037a47997f28d6db5ab18bdf2af0e49f719bfc53967fd2e82
+            cleanup:
+              - "*"
+  - name: zim
+    buildsystem: simple
+    build-commands:
+      - python3 setup.py build
+      - python3 setup.py install --prefix=/app --skip-build
+      - mv /app/share/mime/packages/zim.xml /app/share/mime/packages/org.zim_wiki.Zim.xml
+      - find /app/share/icons/ -name 'application-x-zim-notebook.*' -exec rename application org.zim_wiki.Zim-application '{}' \;
+      - mkdir /app/texlive
+      - ln -s texlive/bin/${FLATPAK_ARCH}-linux /app/texlive-bin
+    sources:
+      - type: git
+        url: https://github.com/zim-desktop-wiki/zim-desktop-wiki.git
+        tag: 0.75.0
+      - type: patch
+        path: mimetype-icon.patch
+      - type: patch
+        path: 0001-Add-launchable-entry.patch
+      - type: patch
+        path: 0001-Trayicon-use-Flatpak-exported-file-name.patch
