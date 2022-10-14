@@ -1,0 +1,28 @@
+From 1116eaa69b273c2b37cd3e97297b19fb6fb3aa04 Mon Sep 17 00:00:00 2001
+From: Sebastian Wiesner <sebastian@swsnr.de>
+Date: Fri, 14 Oct 2022 17:50:44 +0200
+Subject: [PATCH] Use flatpak locale directory in flatpak
+
+---
+ zim/__init__.py | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/zim/__init__.py b/zim/__init__.py
+index d5a23ee..2770343 100644
+--- a/zim/__init__.py
++++ b/zim/__init__.py
+@@ -160,7 +160,10 @@
+ 	os.environ['LANG'] = _lang + '.' + _enc if _enc else _lang
+ 
+ 
+-_localedir = os.path.join(os.path.dirname(ZIM_EXECUTABLE), 'locale')
++if os.path.isfile('/.flatpak-info'):
++	_localedir = os.path.join('/app/share/locale/')
++else:
++	_localedir = os.path.join(os.path.dirname(ZIM_EXECUTABLE), 'locale')
+ 
+ try:
+ 	if os.path.isdir(_localedir):
+-- 
+2.38.0
+
