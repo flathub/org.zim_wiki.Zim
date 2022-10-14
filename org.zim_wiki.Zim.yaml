@@ -131,3 +131,5 @@ modules:
         path: 0001-Add-launchable-entry.patch
       - type: patch
         path: 0001-Trayicon-use-Flatpak-exported-file-name.patch
+      - type: patch
+        path: 0001-Use-flatpak-locale-directory-in-flatpak.patch
