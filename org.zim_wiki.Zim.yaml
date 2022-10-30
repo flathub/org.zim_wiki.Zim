@@ -124,14 +124,17 @@ modules:
       - mkdir /app/texlive
       - ln -s texlive/bin/${FLATPAK_ARCH}-linux /app/texlive-bin
     sources:
-      - type: git
-        url: https://github.com/zim-desktop-wiki/zim-desktop-wiki.git
-        tag: 0.75.0
+      - type: archive
+        url: https://zim-wiki.org/downloads/zim-0.75.1.tar.gz
+        sha256: 88e175d7f7e141896f9e958989d252d722556af17bc4bc6f065e7d54287d0385
+        x-checker-data:
+          type: anitya
+          project-id: 5301
+          stable-only: true
+          url-template: https://zim-wiki.org/downloads/zim-$version.tar.gz
       - type: patch
         path: mimetype-icon.patch
       - type: patch
         path: 0001-Add-launchable-entry.patch
       - type: patch
         path: 0001-Trayicon-use-Flatpak-exported-file-name.patch
-      - type: patch
-        path: 0001-Use-flatpak-locale-directory-in-flatpak.patch
