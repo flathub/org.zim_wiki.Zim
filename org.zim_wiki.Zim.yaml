@@ -1,7 +1,7 @@
 app-id: org.zim_wiki.Zim
 branch: stable
 runtime: org.gnome.Platform
-runtime-version: '43'
+runtime-version: '44'
 sdk: org.gnome.Sdk
 add-extensions:
   org.freedesktop.Sdk.Extension.texlive:
@@ -39,8 +39,8 @@ modules:
     sources:
       - type: archive
         url: >-
-          https://gitlab.com/graphviz/graphviz/-/archive/7.0.0/graphviz-7.0.0.tar.bz2
-        sha256: 380c084c1fac55f442ba0ae1253b24c33b3855cf519ac490975b8572b9893153
+          https://gitlab.com/graphviz/graphviz/-/archive/8.1.0/graphviz-8.1.0.tar.bz2
+        sha256: ce8911695752aa2c3929147e3dee016e58aa624d81d7c18dd16f895ae79460de
         x-checker-data:
           type: anitya
           project-id: 1249
@@ -50,20 +50,14 @@ modules:
   - name: pygtkspellcheck
     buildsystem: simple
     build-commands:
-      - python3 setup.py install --prefix=/app --root=/
+      - pip3 install --verbose --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} --no-build-isolation pyenchant pygtkspellcheck
     sources:
-      - type: archive
-        url: https://files.pythonhosted.org/packages/35/ff/a8ae7652ce2b6e86159441068792afeb133cf89b884d5eccaa1c962c49fe/pygtkspellcheck-5.0.1.tar.gz
-        sha256: 8481dfd4b0661613d6375dfc8da0003a99b1f9fadb7ba5ccdb6fa31be39672fc
-    modules:
-      - name: pyenchant
-        buildsystem: simple
-        build-commands:
-          - python3 setup.py install --prefix=/app --root=/
-        sources:
-          - type: archive
-            url: https://files.pythonhosted.org/packages/b1/a3/86763b6350727ca81c8fcc5bb5bccee416e902e0085dc7a902c81233717e/pyenchant-3.2.2.tar.gz
-            sha256: 1cf830c6614362a78aab78d50eaf7c6c93831369c52e1bb64ffae1df0341e637
+      - type: file
+        url: https://files.pythonhosted.org/packages/b1/a3/86763b6350727ca81c8fcc5bb5bccee416e902e0085dc7a902c81233717e/pyenchant-3.2.2.tar.gz
+        sha256: 1cf830c6614362a78aab78d50eaf7c6c93831369c52e1bb64ffae1df0341e637
+      - type: file
+        url: https://files.pythonhosted.org/packages/9d/3e/25e6927a82929b9b05f9b4abb7bebd6cd04ec8ba9231ce79b190ae3eb40b/pygtkspellcheck-5.0.2-py3-none-any.whl
+        sha256: 6eaab2391f94c81428eb10092b9fd314b46a29bca4b8ce70bd43eb4258a836c8
   - name: python-pyxdg
     buildsystem: simple
     build-commands:
@@ -125,8 +119,8 @@ modules:
       - ln -s texlive/bin/${FLATPAK_ARCH}-linux /app/texlive-bin
     sources:
       - type: archive
-        url: https://zim-wiki.org/downloads/zim-0.75.1.tar.gz
-        sha256: 88e175d7f7e141896f9e958989d252d722556af17bc4bc6f065e7d54287d0385
+        url: https://zim-wiki.org/downloads/zim-0.75.2.tar.gz
+        sha256: 40890db05b1678d1c47178461c767224330c5b694dbddc0c24b1b178265a2dd2
         x-checker-data:
           type: anitya
           project-id: 5301
@@ -138,3 +132,5 @@ modules:
         path: 0001-Add-launchable-entry.patch
       - type: patch
         path: 0001-Trayicon-use-Flatpak-exported-file-name.patch
+      - type: patch
+        path: 0001-Drop-duplicated-release-entry-in-metadata.patch
