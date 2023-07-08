@@ -1,0 +1,45 @@
+From 1291e11f4d266344d2ae1f7a033accdfa508fe31 Mon Sep 17 00:00:00 2001
+From: Robin Lee <robinlee.sysu@gmail.com>
+Date: Sat, 8 Jul 2023 16:59:10 +0800
+Subject: [PATCH] Drop duplicated release entry in metadata
+
+---
+ xdg/org.zim_wiki.Zim.appdata.xml | 22 ----------------------
+ 1 file changed, 22 deletions(-)
+
+diff --git a/xdg/org.zim_wiki.Zim.appdata.xml b/xdg/org.zim_wiki.Zim.appdata.xml
+index eb5631de..baffcf55 100644
+--- a/xdg/org.zim_wiki.Zim.appdata.xml
++++ b/xdg/org.zim_wiki.Zim.appdata.xml
+@@ -35,28 +35,6 @@
+     <screenshot type="default">http://zim-wiki.org/screenshots/zim-normal.png</screenshot>
+   </screenshots>
+   <releases>
+-    <release date="2023-07-06" version="0.75.2">
+-      <description>
+-        <ul>
+-          <li>Add pagename completion by words in "Jump to"</li>
+-          <li>Let tasklist window remember selection state</li>
+-          <li>Let tasklist window use a search bar</li>
+-          <li>Add count in tasklist window</li>
+-          <li>Fix auto-collapse in page index for child nodes</li>
+-          <li>Fix import of gtkspellcheck</li>
+-          <li>Make spellcheck more robust for page reload</li>
+-          <li>Fix bug in insert screenshot</li>
+-          <li>Add scrollbar to custom tool window</li>
+-          <li>Fix config dirs for portable install</li>
+-          <li>Use environment variable for `XDG_TEMPLATES_DIR`</li>
+-          <li>Fix links to anchors on export</li>
+-          <li>Fix bug in copy-paste of interwiki links</li>
+-          <li>Updated diagrameditor and sequencediagrameditor plugins to generate SVG</li>
+-          <li>Add keybinding for cutting the current line(s)</li>
+-          <li>Fix fullscreen headerbar visibility</li>
+-        </ul>
+-      </description>
+-    </release>
+     <release date="2023-07-06" version="0.75.2">
+       <description>
+         <ul>
+-- 
+2.41.0
+
