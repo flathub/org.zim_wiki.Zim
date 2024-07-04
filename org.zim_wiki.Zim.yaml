@@ -39,8 +39,8 @@ modules:
     sources:
       - type: archive
         url: >-
-          https://gitlab.com/graphviz/graphviz/-/archive/8.1.0/graphviz-8.1.0.tar.bz2
-        sha256: ce8911695752aa2c3929147e3dee016e58aa624d81d7c18dd16f895ae79460de
+          https://gitlab.com/graphviz/graphviz/-/archive/12.0.0/graphviz-12.0.0.tar.bz2
+        sha256: 8b7c181da034d02ac5e47207957a0a3506150cbf29a041209d5436ef073e6d70
         x-checker-data:
           type: anitya
           project-id: 1249
@@ -50,7 +50,8 @@ modules:
   - name: pygtkspellcheck
     buildsystem: simple
     build-commands:
-      - pip3 install --verbose --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} --no-build-isolation pyenchant pygtkspellcheck
+      - pip3 install --verbose --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST}
+        --no-build-isolation pyenchant pygtkspellcheck
     sources:
       - type: file
         url: https://files.pythonhosted.org/packages/b1/a3/86763b6350727ca81c8fcc5bb5bccee416e902e0085dc7a902c81233717e/pyenchant-3.2.2.tar.gz
