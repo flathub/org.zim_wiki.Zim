@@ -1,7 +1,7 @@
-diff --git a/xdg/zim.xml b/xdg/zim.xml
+diff --git a/xdg/org.zim_wiki.Zim.xml b/xdg/org.zim_wiki.Zim.xml
 index 0a963d19..351e5497 100644
---- a/xdg/zim.xml
-+++ b/xdg/zim.xml
+--- a/xdg/org.zim_wiki.Zim.xml
++++ b/xdg/org.zim_wiki.Zim.xml
 @@ -4,6 +4,7 @@
  		<sub-class-of type="text/plain"/>
  		<glob pattern="*.zim"/>
