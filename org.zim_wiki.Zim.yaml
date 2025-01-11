@@ -124,3 +124,5 @@ modules:
         path: mimetype-icon.patch
       - type: patch
         path: 0001-Trayicon-use-Flatpak-exported-file-name.patch
+      - type: patch
+        path: appdata-fixes.patch
