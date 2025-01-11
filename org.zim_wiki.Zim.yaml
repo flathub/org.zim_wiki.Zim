@@ -1,17 +1,15 @@
 app-id: org.zim_wiki.Zim
 branch: stable
 runtime: org.gnome.Platform
-runtime-version: '45'
+runtime-version: '47'
 sdk: org.gnome.Sdk
 add-extensions:
   org.freedesktop.Sdk.Extension.texlive:
     directory: texlive
-    version: '23.08'
+    version: '24.08'
     no-autodownload: true
     autodelete: false
 command: zim
-rename-desktop-file: zim.desktop
-rename-icon: zim
 finish-args:
   - --share=ipc
   - --share=network
@@ -57,8 +55,8 @@ modules:
         url: https://files.pythonhosted.org/packages/b1/a3/86763b6350727ca81c8fcc5bb5bccee416e902e0085dc7a902c81233717e/pyenchant-3.2.2.tar.gz
         sha256: 1cf830c6614362a78aab78d50eaf7c6c93831369c52e1bb64ffae1df0341e637
       - type: file
-        url: https://files.pythonhosted.org/packages/9d/3e/25e6927a82929b9b05f9b4abb7bebd6cd04ec8ba9231ce79b190ae3eb40b/pygtkspellcheck-5.0.2-py3-none-any.whl
-        sha256: 6eaab2391f94c81428eb10092b9fd314b46a29bca4b8ce70bd43eb4258a836c8
+        url: https://files.pythonhosted.org/packages/85/d4/610e9b4be60bac8f5a155a9553a982c3462a6b3eb117e9903f59e9389fac/pygtkspellcheck-5.0.3-py3-none-any.whl
+        sha256: 5bd6fb3bdfcb3ce13825535ba6f1dc5d2e07a3e5d87d3034d8478d8bc884902c
   - name: python-pyxdg
     buildsystem: simple
     build-commands:
@@ -76,44 +74,39 @@ modules:
     sources:
       - type: archive
         url: >-
-          https://files.pythonhosted.org/packages/8b/f5/f5282a470a1c0f16b6600edae18ffdc3715cdd6ac8753205df034650cebe/xdot-1.2.tar.gz
-        sha256: 3df91e6c671869bd2a6b2a8883fa3476dbe2ba763bd2a7646cf848a9eba71b70
+          https://files.pythonhosted.org/packages/38/76/0503dddc3100e25135d1380f89cfa5d729b7d113a851804aa98dc4f19888/xdot-1.4.tar.gz
+        sha256: fb029dab92b3c188ad5479108014edccb6c7df54f689ce7f1bd1c699010b7781
     modules:
-      # derived from https://github.com/flathub/se.sjoerd.GIScan/blob/065f91ce93a91ede84ff36bb88a607efeae9139d/python3-requirements.json
       - name: numpy
         buildsystem: simple
         build-commands:
-          - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
-            --prefix=${FLATPAK_DEST} numpy --no-build-isolation
+          - ./vendored-meson/meson/meson.py setup builddir
+            --buildtype=debugoptimized
+            --prefix=${FLATPAK_DEST}
+          - cd builddir && ninja
+          - cd builddir && ninja install
         sources:
-          - type: file
-            url: https://files.pythonhosted.org/packages/0a/88/f4f0c7a982efdf7bf22f283acf6009b29a9cc5835b684a49f8d3a4adb22f/numpy-1.23.3.tar.gz
-            sha256: 51bf49c0cd1d52be0a240aa66f3458afc4b95d8993d2d04f0d91fa60c10af6cd
+          - type: archive
+            url: https://files.pythonhosted.org/packages/f2/a5/fdbf6a7871703df6160b5cf3dd774074b086d278172285c52c2758b76305/numpy-2.2.1.tar.gz
+            sha256: 45681fd7128c8ad1c379f0ca0776a8b0c6583d2f69889ddac01559dfe4390918
         cleanup:
           - /bin
           - /lib/python3.*/site-packages/numpy/core/include
           - /lib/python3.*/site-packages/numpy/core/lib/libnpymath.a
           - /lib/python3.*/site-packages/numpy/tests
           - /lib/python3.*/site-packages/numpy/*/tests
-        modules:
-          # numpy recommends setuptools < 60.0
-          # see: https://numpy.org/devdocs/reference/distutils_status_migration.html#numpy-setuptools-interaction
-          - name: setuptools
-            buildsystem: simple
-            build-commands:
-              - python3 setup.py install --prefix=/app --root=/
-            sources:
-              - type: archive
-                url: https://files.pythonhosted.org/packages/ef/75/2bc7bef4d668f9caa9c6ed3f3187989922765403198243040d08d2a52725/setuptools-59.8.0.tar.gz
-                sha256: 09980778aa734c3037a47997f28d6db5ab18bdf2af0e49f719bfc53967fd2e82
-            cleanup:
-              - '*'
+  - name: gtksourceview
+    buildsystem: meson
+    sources:
+      - type: archive
+        # latest version that supports GTK3
+        url: https://download.gnome.org/sources/gtksourceview/4.8/gtksourceview-4.8.4.tar.xz
+        sha256: 7ec9d18fb283d1f84a3a3eff3b7a72b09a10c9c006597b3fbabbb5958420a87d
   - name: zim
     buildsystem: simple
     build-commands:
       - python3 setup.py build
       - python3 setup.py install --prefix=/app --skip-build
-      - mv /app/share/mime/packages/zim.xml /app/share/mime/packages/org.zim_wiki.Zim.xml
       - find /app/share/icons/ -name 'application-x-zim-notebook.*' -exec rename application
         org.zim_wiki.Zim-application '{}' \;
       - mkdir /app/texlive
@@ -130,8 +123,4 @@ modules:
       - type: patch
         path: mimetype-icon.patch
       - type: patch
-        path: 0001-Add-launchable-entry.patch
-      - type: patch
         path: 0001-Trayicon-use-Flatpak-exported-file-name.patch
-      - type: patch
-        path: 0001-Drop-duplicated-release-entry-in-metadata.patch
