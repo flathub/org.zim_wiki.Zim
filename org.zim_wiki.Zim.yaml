@@ -80,8 +80,7 @@ modules:
       - name: numpy
         buildsystem: simple
         build-commands:
-          - ./vendored-meson/meson/meson.py setup builddir
-            --buildtype=debugoptimized
+          - ./vendored-meson/meson/meson.py setup builddir --buildtype=debugoptimized
             --prefix=${FLATPAK_DEST}
           - cd builddir && ninja
           - cd builddir && ninja install
@@ -113,8 +112,8 @@ modules:
       - ln -s texlive/bin/${FLATPAK_ARCH}-linux /app/texlive-bin
     sources:
       - type: archive
-        url: https://zim-wiki.org/downloads/zim-0.76.0.tar.gz
-        sha256: 09ccaca5a277ae73884713066d45dc8c48180e3c0ded0120e18d3b0d8fdd38c8
+        url: https://zim-wiki.org/downloads/zim-0.76.1.tar.gz
+        sha256: 6a8edd625750a208f1b9b009077bec4d28d38333988e4a047a2d6a594bf91055
         x-checker-data:
           type: anitya
           project-id: 5301
