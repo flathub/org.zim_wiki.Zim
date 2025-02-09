@@ -1,22 +1,8 @@
 diff --git a/xdg/org.zim_wiki.Zim.appdata.xml b/xdg/org.zim_wiki.Zim.appdata.xml
-index 0f1a34cb..4c5cb6c2 100644
+index fef4603a..a5e5bb2a 100644
 --- a/xdg/org.zim_wiki.Zim.appdata.xml
 +++ b/xdg/org.zim_wiki.Zim.appdata.xml
-@@ -30,9 +30,11 @@
-     </ul>
-   </description>
-   <launchable type="desktop-id">org.zim_wiki.Zim.desktop</launchable>
--  <url type="homepage">http://zim-wiki.org/</url>
-+  <url type="homepage">https://zim-wiki.org/</url>
-   <screenshots>
--    <screenshot type="default">http://zim-wiki.org/screenshots/zim-normal.png</screenshot>
-+    <screenshot type="default">
-+      <image>https://zim-wiki.org/screenshots/zim-normal.png</image>
-+    </screenshot>
-   </screenshots>
-   <releases>
-     <release date="2024-12-29" version="0.76.0">
-@@ -358,6 +360,9 @@
+@@ -376,6 +376,9 @@
      </release>
    </releases>
    <update_contact>jaap.karssenberg@gmail.com</update_contact>
