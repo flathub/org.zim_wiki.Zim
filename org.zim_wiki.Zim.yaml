@@ -37,8 +37,8 @@ modules:
     sources:
       - type: archive
         url: >-
-          https://gitlab.com/graphviz/graphviz/-/archive/12.2.1/graphviz-12.2.1.tar.bz2
-        sha256: a990b38c3ea807a06597ce8d46d87878e59bb3fb12609fd98c02a861a4ca81b8
+          https://gitlab.com/graphviz/graphviz/-/archive/13.0.0/graphviz-13.0.0.tar.bz2
+        sha256: d3926ff2c626b0825dd3e6172a21381000735a61586fc8bab3908abe3f635252
         x-checker-data:
           type: anitya
           project-id: 1249
@@ -112,8 +112,8 @@ modules:
       - ln -s texlive/bin/${FLATPAK_ARCH}-linux /app/texlive-bin
     sources:
       - type: archive
-        url: https://zim-wiki.org/downloads/zim-0.76.1.tar.gz
-        sha256: 6a8edd625750a208f1b9b009077bec4d28d38333988e4a047a2d6a594bf91055
+        url: https://zim-wiki.org/downloads/zim-0.76.3.tar.gz
+        sha256: 4adf09eb3f077138fe55bf26f13e6c4d993616fe424a799d1ba6be098ce4eb05
         x-checker-data:
           type: anitya
           project-id: 5301
