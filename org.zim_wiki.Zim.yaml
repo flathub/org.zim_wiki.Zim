@@ -1,5 +1,4 @@
 app-id: org.zim_wiki.Zim
-branch: stable
 runtime: org.gnome.Platform
 runtime-version: '49'
 sdk: org.gnome.Sdk
