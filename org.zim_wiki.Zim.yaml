@@ -36,8 +36,8 @@ modules:
     sources:
       - type: archive
         url: >-
-          https://gitlab.com/graphviz/graphviz/-/archive/13.1.0/graphviz-13.1.0.tar.bz2
-        sha256: 5bd296cea2f69d640384bb67aa9c4f692e59215d756f63776e138f49fe9c6820
+          https://gitlab.com/graphviz/graphviz/-/archive/14.0.5/graphviz-14.0.5.tar.bz2
+        sha256: 41ed6ab8a6a1dd247d44292907e02596c645a1c13e3b3705d87ea6f8c68fa007
         x-checker-data:
           type: anitya
           project-id: 1249
