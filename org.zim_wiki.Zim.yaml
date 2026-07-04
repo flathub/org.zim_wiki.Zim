@@ -1,6 +1,6 @@
 app-id: org.zim_wiki.Zim
 runtime: org.gnome.Platform
-runtime-version: '49'
+runtime-version: '50'
 sdk: org.gnome.Sdk
 add-extensions:
   org.freedesktop.Sdk.Extension.texlive:
@@ -73,8 +73,8 @@ modules:
     sources:
       - type: archive
         url: >-
-          https://files.pythonhosted.org/packages/38/76/0503dddc3100e25135d1380f89cfa5d729b7d113a851804aa98dc4f19888/xdot-1.4.tar.gz
-        sha256: fb029dab92b3c188ad5479108014edccb6c7df54f689ce7f1bd1c699010b7781
+          https://files.pythonhosted.org/packages/32/68/13f80d47bffda03eaf05bd076d1b2ef9a1cf39b461b37e32f303bcf048de/xdot-1.6.tar.gz
+        sha256: ebddefc3e3aa9fd8b2e2ed884ed844043f843428b79dccda831803add55cc51d
     modules:
       - name: numpy
         buildsystem: simple
@@ -85,8 +85,8 @@ modules:
           - cd builddir && ninja install
         sources:
           - type: archive
-            url: https://files.pythonhosted.org/packages/f2/a5/fdbf6a7871703df6160b5cf3dd774074b086d278172285c52c2758b76305/numpy-2.2.1.tar.gz
-            sha256: 45681fd7128c8ad1c379f0ca0776a8b0c6583d2f69889ddac01559dfe4390918
+            url: https://files.pythonhosted.org/packages/e7/05/3d27272d30698dc0ecb7fdfaa41ad70303b444f81722bb99bce1d818638a/numpy-2.5.0.tar.gz
+            sha256: 5a129578019311b6e56bdd714250f19b518f7dceeeb8d1af5490f4942d3f891c
         cleanup:
           - /bin
           - /lib/python3.*/site-packages/numpy/core/include
@@ -120,7 +120,5 @@ modules:
           url-template: https://zim-wiki.org/downloads/zim-$version.tar.gz
       - type: patch
         path: mimetype-icon.patch
-      - type: patch
-        path: 0001-Trayicon-use-Flatpak-exported-file-name.patch
       - type: patch
         path: appdata-fixes.patch
