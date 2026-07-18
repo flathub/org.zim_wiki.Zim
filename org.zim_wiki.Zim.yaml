@@ -111,8 +111,8 @@ modules:
       - ln -s texlive/bin/${FLATPAK_ARCH}-linux /app/texlive-bin
     sources:
       - type: archive
-        url: https://zim-wiki.org/downloads/zim-0.77.0.tar.gz
-        sha256: 191e38947a63f24373e5f5f93d455b7055bc69293ca2ec6628628d500ec4fe50
+        url: https://zim-wiki.org/downloads/zim-0.77.1.tar.gz
+        sha256: 53a8d3b30763310d1fb561e1f308d8d78ae332fc8a67bec22d6d2c68d6351120
         x-checker-data:
           type: anitya
           project-id: 5301
