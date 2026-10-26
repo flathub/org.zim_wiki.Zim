@@ -51,11 +51,11 @@ modules:
         --no-build-isolation pyenchant pygtkspellcheck
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/b1/a3/86763b6350727ca81c8fcc5bb5bccee416e902e0085dc7a902c81233717e/pyenchant-3.2.2.tar.gz
-        sha256: 1cf830c6614362a78aab78d50eaf7c6c93831369c52e1bb64ffae1df0341e637
+        url: https://files.pythonhosted.org/packages/36/ad/64925c937e41be75c7067c85757b3d45b148e9111187b37693269f583156/pyenchant-3.3.0.tar.gz
+        sha256: 825288246b5debc9436f91967650974ef0d5636458502619e322c476f1283891
       - type: file
-        url: https://files.pythonhosted.org/packages/85/d4/610e9b4be60bac8f5a155a9553a982c3462a6b3eb117e9903f59e9389fac/pygtkspellcheck-5.0.3-py3-none-any.whl
-        sha256: 5bd6fb3bdfcb3ce13825535ba6f1dc5d2e07a3e5d87d3034d8478d8bc884902c
+        url: https://files.pythonhosted.org/packages/01/87/e199ed6165f2e08492f6e8d44ef3d8824e473a2cf3be94cc19d5a6f8a3ae/pygtkspellcheck-5.0.4-py3-none-any.whl
+        sha256: e578d950046ed7b15487d00ea72ad39d33bdd85f61114f75caa4bdf28cd0aa3f
   - name: python-pyxdg
     buildsystem: simple
     build-commands:
@@ -85,8 +85,8 @@ modules:
           - cd builddir && ninja install
         sources:
           - type: archive
-            url: https://files.pythonhosted.org/packages/e7/05/3d27272d30698dc0ecb7fdfaa41ad70303b444f81722bb99bce1d818638a/numpy-2.5.0.tar.gz
-            sha256: 5a129578019311b6e56bdd714250f19b518f7dceeeb8d1af5490f4942d3f891c
+            url: https://files.pythonhosted.org/packages/95/b0/c7453d0b6e2073c3264468b106ee1563750cecc910965e67357e3698c83e/numpy-2.5.4.tar.gz
+            sha256: 9a94cf751c9ad8ebaa835bcd3d40dacf8534ad086b88c38029b65123c7999d2a
         cleanup:
           - /bin
           - /lib/python3.*/site-packages/numpy/core/include
