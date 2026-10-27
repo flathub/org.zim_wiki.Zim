@@ -12,11 +12,12 @@ command: zim
 finish-args:
   - --share=ipc
   - --share=network
-  - --socket=x11
   - --socket=wayland
+  - --socket=fallback-x11
   # libappindicator access
   - --talk-name=org.kde.StatusNotifierWatcher
   - --talk-name=com.canonical.indicator.application
+  # zim opens files/links with host apps via flatpak-spawn --host (zim/applications.py)
   - --talk-name=org.freedesktop.Flatpak
   - --filesystem=home
   - --filesystem=/run/media
